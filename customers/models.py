@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Customer(AbstractUser):
-    adress = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = "Customer"
