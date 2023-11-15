@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>SingUP</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">SingUP</button>
+    <input type="hidden" name="next" value="{{ next }}"/>
+  </form>
+{% endblock %}

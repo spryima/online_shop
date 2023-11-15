@@ -2,9 +2,11 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
-from django.views.generic import DetailView
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, CreateView
 
 from cart.models import ShoppingCart, CartItem
+from customers.forms import CustomerCreationForm
 from customers.models import Customer
 from products.models import Product
 
@@ -45,3 +47,10 @@ class CustomerLoginView(LoginView):
 
 class CustomerDetailView(LoginRequiredMixin, DetailView):
     model = Customer
+
+
+class CustomerCreateView(CreateView):
+    model = Customer
+    form_class = CustomerCreationForm
+    success_url = reverse_lazy("home:main")
+    template_name = "registration/register.html"
