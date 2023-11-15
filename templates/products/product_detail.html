@@ -2,6 +2,10 @@
 {% block content %}
 
   {{ product.name }}
+  <br>
   {{ product.price }}
+  <br>
   {{ product.description }}
+  <br>
+  <a href="{% url 'products:add-to-cart' pk=product.id %}">add to cart</a>
 {% endblock %}

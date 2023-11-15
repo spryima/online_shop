@@ -7,12 +7,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    def add_category(self):
-        pass
-
-    def remove_category(self):
-        pass
-
     class Meta:
         ordering = ["name"]
         verbose_name_plural = "categiries"
@@ -29,12 +23,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
-    def add_product(self):
-        pass
-
-    def update_product(self):
-        pass
-
-    def remove_product(self):
-        pass
