@@ -12,7 +12,7 @@ class ShoppingCartListView(ListView):
 
         current_user = self.request.user
         # if current_user.is_authenticated:
-        cart = ShoppingCart.objects.filter(customer=current_user).first()
+        cart = ShoppingCart.objects.filter(customer=current_user).get()
 
         if cart:
             shopping_list = CartItem.objects.filter(cart=cart)
