@@ -3,7 +3,7 @@
     <li><a href="{% url 'home:main' %}">Home</a></li>
     <li><a href="{% url 'products:product-list' %}">Products</a></li>
     <li><a href="{% url 'home:about' %}">About</a></li>
-    <li><a href="{% url 'shopping-cart:shopping-cart-view' %}">Shopping Cart</a></li>
+    <li><a href="{% url 'shopping-cart:shopping-cart-view' %}">Shopping Cart ({{ cart_item_count }})</a></li>
 
     {% if user.is_authenticated %}
       <li >User: <a href="{% url 'customers:profile' pk=user.id %}"> {{ user.first_name }} {{ user.last_name }}</a></li>

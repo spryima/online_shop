@@ -2,7 +2,6 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
-from django.shortcuts import redirect
 from django.views.generic import DetailView
 
 from cart.models import ShoppingCart, CartItem
