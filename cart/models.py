@@ -13,13 +13,16 @@ class ShoppingCart(models.Model):
     )
 
     def add_product(self, product):
-        cart_item, created = CartItem.objects.get_or_create(
-            cart=self, product=product, defaults={"quantity": 1}
-        )
-        if not created:
-            cart_item.quantity += 1
+        if product.quantity > 0:
+            cart_item, created = CartItem.objects.get_or_create(
+                cart=self, product=product, defaults={"quantity": 1}
+            )
+            if not created:
+                cart_item.quantity += 1
+                cart_item.save()
             cart_item.save()
-        cart_item.save()
+            product.quantity -= 1
+            product.save()
 
     def remove_product(self, product):
         try:
@@ -29,6 +32,8 @@ class ShoppingCart(models.Model):
                 cart_item.save()
             else:
                 cart_item.delete()
+            product.quantity += 1
+            product.save()
         except CartItem.DoesNotExist:
             pass
 

@@ -7,8 +7,12 @@
   <br>
   {{ product.description }}
   <br>
-  <form method="post" action="{% url 'products:add-to-cart' product.id %}">
-    {% csrf_token %}
-    <button type="submit">Add to cart</button>
-  </form>
+  {% if product.quantity > 0 %}
+    <form method="post" action="{% url 'products:add-to-cart' product.id %}">
+      {% csrf_token %}
+      <button type="submit">Add to cart</button>
+    </form>
+  {% else %}
+    Out of stock
+  {% endif %}
 {% endblock %}

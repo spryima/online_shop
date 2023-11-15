@@ -4,7 +4,18 @@
 
     <ul>
         {% for item in shopping_list %}
-            <li>{{ item.product.name }} - {{ item.product.price }} - {{ item.quantity }} = {{ item.total_price }}</li>
+            <li>{{ item.product.name }} - {{ item.product.price }} - {{ item.quantity }}
+              <form method="post" action="{% url 'products:add-to-cart' item.product.id %}">
+                {% csrf_token %}
+                <button type="submit">+</button>
+              </form>
+              <form method="post" action="{% url 'products:remove-from-cart' item.product.id %}">
+                {% csrf_token %}
+                <button type="submit">-</button>
+              </form>
+
+              = {{ item.total_price }}
+            </li>
         {% endfor %}
         <p>total price: {{ total_price }}</p>
     </ul>

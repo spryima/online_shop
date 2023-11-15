@@ -4,10 +4,14 @@
     <ul>
         {% for product in products %}
             <li><a href="{% url 'products:product-detail' pk=product.id %}" >{{ product.name }}</a> - {{ product.price }}
-              <form method="post" action="{% url 'products:add-to-cart' product.id %}">
-                {% csrf_token %}
-                <button type="submit">Add to cart</button>
-              </form>
+              {% if product.quantity > 0 %}
+                <form method="post" action="{% url 'products:add-to-cart' product.id %}">
+                  {% csrf_token %}
+                  <button type="submit">Add to cart</button>
+                </form>
+              {% else %}
+                Out of stock
+              {% endif %}
             </li>
         {% endfor %}
     </ul>
