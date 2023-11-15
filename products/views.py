@@ -1,6 +1,5 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
-from django.urls import reverse_lazy, reverse
 from django.views import View
 from django.views.generic import ListView, DetailView
 
@@ -21,9 +20,17 @@ class ProductDetailView(DetailView):
 class AddToCartView(View):
     def post(self, request, pk):
         product = get_object_or_404(Product, id=pk)
-        cart, _ = ShoppingCart.objects.get_or_create(customer=request.user)
 
-        cart.add_product(product)
+        if request.user.is_authenticated:
+            cart, _ = ShoppingCart.objects.get_or_create(customer=request.user)
+            cart.add_product(product)
+        else:
+            if product.quantity > 0:
+                cart = request.session.get("cart", {})
+                cart[str(pk)] = cart.get(str(pk), 0) + 1
+                request.session["cart"] = cart
+                product.quantity -= 1
+                product.save()
 
         return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
@@ -31,8 +38,19 @@ class AddToCartView(View):
 class RemoveFromCartView(View):
     def post(self, request, pk):
         product = get_object_or_404(Product, id=pk)
-        cart = ShoppingCart.objects.get(customer=request.user)
 
-        cart.remove_product(product)
+        if request.user.is_authenticated:
+            cart = ShoppingCart.objects.get(customer=request.user)
+            cart.remove_product(product)
+        else:
+            cart = request.session.get("cart", {})
+            if str(pk) in cart:
+                if cart[str(pk)] > 1:
+                    cart[str(pk)] -= 1
+                else:
+                    del cart[str(pk)]
+                request.session["cart"] = cart
+                product.quantity += 1
+                product.save()
 
         return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
