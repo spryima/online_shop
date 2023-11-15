@@ -6,9 +6,9 @@
   Main page
 
   <br>
-  <a href="{% url 'products:product-list' %}">Heaters</a>
-  <a href="">Dehydrators</a>
-  <a href="">Towel Rails</a>
 
+  <a href="{% url 'products:product-list' %}?category_id=1">Heaters</a>
+  <a href="{% url 'products:product-list' %}?category_id=2">Dehydrators</a>
+  <a href="{% url 'products:product-list' %}?category_id=3">Towel Rails</a>
 
 {% endblock %}
