@@ -1,13 +1,74 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-  <h1>Login</h1>
+    <!-- Start Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-5">
+          <div class="intro-excerpt">
+            <h1>Login</h1>
+          </div>
+        </div>
+        <div class="col-lg-7">
 
-  <form method="post" action="{% url 'customers:login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" value="Login">Login</button>
-    <input type="hidden" name="next" value="{{ next }}"/>
-  </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Hero Section -->
+
+
+  <div class="row">
+      <div class="col-lg-8">
+        <div class="subscription-form">
+
+          <br>
+          <br>
+
+          <form class="row g-3" method="post" action="{% url 'customers:login' %}">
+            {% csrf_token %}
+
+            <div class="col-auto">
+                <label for="{{ form.username.id_for_label }}">Username:</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="alert alert-danger">{{ form.username.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="col-auto">
+                <label for="{{ form.password.id_for_label }}">Password:</label>
+                {{ form.password }}
+                {% if form.password.errors %}
+                    <div class="alert alert-danger">{{ form.password.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="col-auto">
+              <button class="btn btn-primary" type="submit" value="Login" >Login</button>
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </div>
+
+          </form>
+
+        </div>
+      <br>
+        <br>
+      <div class="col-auto">
+            <a class="nav-link" href="{% url 'customers:customer-create'%}"><button class="btn btn-primary" type="submit"> SingUp</button></a>
+          </div>
+      </div>
+    </div>
+
+  <br>
+          <br><br>
+          <br><br>
+          <br><br>
+          <br><br>
+          <br>
+
+
+
+
 
 {% endblock %}

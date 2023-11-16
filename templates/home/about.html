@@ -1,6 +1,89 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 
-  This page is about company
+  <div class="hero">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-5">
+          <div class="intro-excerpt">
+            <h1><span class="d-block">Teploceramic</span></h1>
+            <p class="mb-4">Ukrainian company with specialisation in the development and production
+              of high-class infra-red heaters. </p>
+
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="hero-img-wrap">
+            <img src="{% static 'images/hero.png' %}" class="img-fluid" style="max-width: 70%; height: auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Start Why Choose Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-6">
+						<h2 class="section-title">Why Choose Us</h2>
+						<p>We are sure of what we do.</p>
+
+						<div class="row my-5">
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/truck.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Fast Shipping</h3>
+									<p>You will always receive what you ordered on time and safely. We make every effort to simplify the customer's delivery experience.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/bag.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Trusted by Customers</h3>
+									<p>More than 21.000 products were sold in 3 year.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/support.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>We make life warmer</h3>
+									<p>Ceramic infrared convection heaters simultaneous processing of heat in two ways: thermal convection and infrared rays!</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/return.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>14 days Free Returns</h3>
+									<p>You have 14 days for a free return of the product if you don't like it.</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+		<!-- End Why Choose Us Section -->
+
+
+
+
+
 {% endblock %}

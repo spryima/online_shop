@@ -1,21 +1,56 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 
-  {{ product.name }}
-  <br>
-  {{ product.price }}
-  <br>
-  {{ product.description }}
-  <br>
-  {% if product.quantity > 0 %}
-    <form method="post" action="{% url 'products:add-to-cart' product.id %}">
-      {% csrf_token %}
-      <button type="submit">Add to cart</button>
-    </form>
-  {% else %}
-    Out of stock
-  {% endif %}
+
+  <!-- Start Why Choose Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-6">
+						<h2 class="section-title">{{ product.name }}</h2>
+						<p>{{ product.description }}</p>
+
+						<div class="row my-5">
 
 
-  <a href="{% url 'products:product-list' %}">Back to Product List</a>
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/bag.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Good choice</h3>
+									<p>
+                    {% if product.quantity > 0 %}
+                      <form method="post" action="{% url 'products:add-to-cart' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Add to cart</button>
+                      </form>
+                    {% else %}
+                      Out of stock
+                    {% endif %}
+                  </p>
+								</div>
+							</div>
+
+
+
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div>
+              <img src="{% if product.category_id == 1 %} {% static 'images/sq-heater.png' %}
+                      {% elif product.category_id == 2 %} {% static 'images/sq-dehyd.png' %}
+                      {% else %} {% static 'images/sq-towelr.png' %}
+                      {% endif %}" alt="Image" class="img-fluid">
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- End Why Choose Us Section -->
+
 {% endblock %}

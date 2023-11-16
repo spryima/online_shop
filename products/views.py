@@ -10,7 +10,7 @@ from .models import Product, Category
 class ProductListView(ListView):
     model = Product
     context_object_name = "products"
-    paginate_by = 5
+    paginate_by = 8
 
     def get_queryset(self):
         queryset = super().get_queryset()

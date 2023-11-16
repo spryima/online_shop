@@ -1,35 +1,61 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-    <h2>Product List</h2>
-    <p>Products count: {{ products.count }}</p>
-    <div>
-        <form method="get">
-            {% for category in categories %}
-                <div>
-                    <input type="checkbox" name="category_id" value="{{ category.id }}" id="category_{{ category.id }}"
-                        {% if category.id|stringformat:"s" in selected_category_ids %} checked {% endif %}>
-                    <label for="category_{{ category.id }}">{{ category.name }}</label>
-                </div>
-            {% endfor %}
-            <button type="submit">Filter</button>
-        </form>
-    </div>
 
-    <div>
-        <ul>
-            {% for product in products %}
-                <li>
-                    <a href="{% url 'products:product-detail' pk=product.id %}">{{ product.name }}</a> - {{ product.price }}
-                    {% if product.quantity > 0 %}
-                        <form method="post" action="{% url 'products:add-to-cart' product.id %}">
-                            {% csrf_token %}
-                            <button type="submit">Add to cart</button>
-                        </form>
-                    {% else %}
-                        Out of stock
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
+
+
+  <div class="untree_co-section product-section before-footer-section">
+
+    <div class="container">
+      <div class="row mb-5">
+      <form method="get">
+        {% for category in categories %}
+          <div>
+            <input type="checkbox" name="category_id" value="{{ category.id }}" id="category_{{ category.id }}"
+                {% if category.id|stringformat:"s" in selected_category_ids %} checked {% endif %}>
+            <label for="category_{{ category.id }}">{{ category.name }}</label>
+          </div>
+        {% endfor %}
+        <button type="submit">Filter</button>
+      </form>
     </div>
+      <div class="row">
+
+
+        {% for product in products %}
+
+          <!-- Start Column  -->
+          <div class="col-12 col-md-4 col-lg-3 mb-5">
+            <a class="product-item" href="{% url 'products:product-detail' pk=product.id %}">
+              <img src="{% if product.category_id == 1 %} {% static 'images/sq-heater.png' %}
+              {% elif product.category_id == 2 %} {% static 'images/sq-dehyd.png' %}
+              {% else %} {% static 'images/sq-towelr.png' %}
+              {% endif %}" class="img-fluid product-thumbnail">
+              <h3 class="product-title">{{ product.name }}</h3>
+              <strong class="product-price">${{ product.price }}</strong>
+
+
+              {% if product.quantity > 0 %}
+                <form method="post" action="{% url 'products:add-to-cart' product.id %}">
+                  {% csrf_token %}
+                  <button type="submit">
+                      <span>
+                        Add to cart
+                      </span>
+                  </button>
+                </form>
+              {% else %}
+                <div class="navbar-brand">
+                  Out of stock
+                </div>
+              {% endif %}
+            </a>
+          </div>
+          <!-- End Column  -->
+        {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
 {% endblock %}

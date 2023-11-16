@@ -1,6 +1,52 @@
 {%  extends "base.html" %}
+{% load static %}
 {% block content %}
+
+
+  <!-- Start Why Choose Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-6">
+						<h2 class="section-title">{{ user.username }}</h2>
+						<p> {{ user.first_name }} {{ user.last_name }} </p>
+
+						<div class="row my-5">
+
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+
+
+                    <a href="{% url 'logout'%}"><button type="submit" value="logout">Logout</button></a>
+
+								</div>
+							</div>
+
+
+
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div>
+              <img src="{% static 'images/customer.png' %}">
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- End Why Choose Us Section -->
+
+  <br>
   {{ user.username }}
+  <br>
   {{ user.first_name }}
+  <br>
   {{ user.last_name }}
+  <br>
+
+
 {%  endblock %}
