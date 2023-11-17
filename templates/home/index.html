@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <div class="hero">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-lg-5">
+            <div class="intro-excerpt">
+              <h1><span class="d-block">We guarantee your comfort</span></h1>
+              <p class="mb-4">Teploceramic is a Ukrainian company with specialisation in the development and production
+                of high-class infra-red heaters. Teploceramic infrared heaters provide a comfortable and healthy room climate in an exclusive design</p>
+              <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="hero-img-wrap">
+              <img src="{% static 'images/hero.png' %}" class="img-fluid" style="max-width: 90%; height: auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start Product Section -->
+  <div class="product-section">
+    <div class="container">
+      <div class="row">
+
+        <!-- Start Column 1 -->
+        <div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+          <h2 class="mb-4 section-title">Crafted with excellent material.</h2>
+          <p class="mb-4">With the most stringent requirements on the material and processing, Teploceramic lays emphasis on
+            energy efficiency and conserving the environment. Human beings with passion for the unlimited diversity of opportunities
+            ensure that you have your healthy warmth, and we have a safe ecological future. </p>
+          <p><a href="{% url 'products:product-list' %}" class="btn">Explore</a></p>
+        </div>
+        <!-- End Column 1 -->
+
+        <!-- Start Column 2 -->
+        <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+          <a class="product-item" href="{% url 'products:product-list' %}?category_id=1">
+            <img src="{% static 'images/sq-heater.png' %}" class="img-fluid product-thumbnail">
+            <h3 class="product-title">Heaters</h3>
+            <strong class="product-price">Heaters</strong>
+
+            <span class="icon-cross">
+              <img src="{% static 'images/cross.svg' %}" class="img-fluid">
+            </span>
+          </a>
+        </div>
+        <!-- End Column 2 -->
+
+        <!-- Start Column 3 -->
+        <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+          <a class="product-item" href="{% url 'products:product-list' %}?category_id=2">
+            <img src="{% static 'images/sq-dehyd.png' %}" class="img-fluid product-thumbnail">
+            <h3 class="product-title"></h3>
+            <strong class="product-price">Dehydrators</strong>
+
+            <span class="icon-cross">
+              <img src="{% static 'images/cross.svg' %}" class="img-fluid">
+            </span>
+          </a>
+        </div>
+        <!-- End Column 3 -->
+
+        <!-- Start Column 4 -->
+        <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+          <a class="product-item" href="{% url 'products:product-list' %}?category_id=3">
+            <img src="{% static 'images/sq-towel.png' %}" class="img-fluid product-thumbnail">
+            <h3 class="product-title"></h3>
+            <strong class="product-price">Towel Rails</strong>
+
+            <span class="icon-cross">
+              <img src="{% static 'images/cross.svg' %}" class="img-fluid">
+            </span>
+          </a>
+        </div>
+        <!-- End Column 4 -->
+
+      </div>
+    </div>
+  </div>
+  <!-- End Product Section -->
+
+
+
+
+
+<!-- Start Why Choose Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-6">
+						<h2 class="section-title">Why Choose Us</h2>
+						<p>We are sure of what we do.</p>
+
+						<div class="row my-5">
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/truck.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Fast Shipping</h3>
+									<p>You will always receive what you ordered on time and safely. We make every effort to simplify the customer's delivery experience.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/bag.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Trusted by Customers</h3>
+									<p>More than 21.000 products were sold in 3 year.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/support.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>We make life warmer</h3>
+									<p>Ceramic infrared convection heaters simultaneous processing of heat in two ways: thermal convection and infrared rays!</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'images/return.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>14 days Free Returns</h3>
+									<p>You have 14 days for a free return of the product if you don't like it.</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div class="img-wrap">
+							<img src="{% static 'images/why-choose-us-img.jpg' %}" alt="Image" class="img-fluid">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- End Why Choose Us Section -->
+
+  <!-- Start We Help Section -->
+		<div class="we-help-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-7 mb-5 mb-lg-0">
+						<div class="imgs-grid">
+							<div class="grid grid-1"><img src="{% static 'images/img-grid-1.jpg' %}" alt="Teploceramic"></div>
+							<div class="grid grid-2"><img src="{% static 'images/img-grid-3.jpg' %}" alt="Teploceramic"></div>
+							<div class="grid grid-3"><img src="{% static 'images/img-grid-2.jpeg' %}" alt="Teploceramic"></div>
+						</div>
+					</div>
+					<div class="col-lg-5 ps-lg-5">
+						<h2 class="section-title mb-4">We make your place  Warm, Safe and Modern</h2>
+						<p>A major advantage of infrared heating is that air is not used as the medium for transporting the heat. There is less air movement which reduces the amount of dust lifted into the air. The result of this is you have far less dust and allergens in the air we breathe. The air is cooler which also helps breathing.</p>
+
+						<ul class="list-unstyled custom-list my-4">
+							<li>Stylish design and portability will provide harmony in the interior!</li>
+							<li>Our heaters have built-in modern temperature controllers.</li>
+							<li>Ceramic infrared heating panels do not dry or burn the air, provides safety and comfort.</li>
+							<li>Infrared waves have surrounded us for thousands of years, from the sun and from fires and stoves.</li>
+						</ul>
+						<p><a href="{% url 'products:product-list' %}" class="btn">Explore</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End We Help Section -->
+
+
+
+{% endblock %}

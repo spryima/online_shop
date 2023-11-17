@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+  <!-- Start We Help Section -->
+  <div class="we-help-section">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-7 mb-5 mb-lg-0">
+          <div class="imgs-grid">
+            <div class="grid grid-1"><img src="{% if product.category_id == 1 %} {% static 'images/sq-heater.png' %}
+                      {% elif product.category_id == 2 %} {% static 'images/sq-dehyd.png' %}
+                      {% else %} {% static 'images/sq-towelr.png' %}
+                      {% endif %}" alt="Image" class="img-fluid"></div>
+            <div class="grid grid-2"></div>
+            <div class="grid grid-3"></div>
+          </div>
+        </div>
+        <div class="col-lg-5 ps-lg-5">
+          <h2 class="section-title mb-4">{{ product.name }}</h2>
+          <p>{{ product.description }}</p>
+
+          <ul class="list-unstyled custom-list my-4">
+            <li>Best in class</li>
+            <li>1-year warranty</li>
+            <li>Safety material</li>
+            <li>Made in Ukraine</li>
+          </ul>
+          <p>{% if product.quantity > 0 %}
+                      <form method="post" action="{% url 'products:add-to-cart' product.id %}">
+                        {% csrf_token %}
+
+
+                        <div class="icon">
+                          <img src="{% static 'images/bag.svg' %}" alt="Image" class="imf-fluid">
+
+                          <button type="submit" class="btn">Add to cart</button>
+                        </div>
+
+                      </form>
+                    {% else %}
+                      Out of stock
+                    {% endif %}
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End We Help Section -->
+
+
+{% endblock %}
