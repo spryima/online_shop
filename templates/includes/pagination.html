@@ -1,6 +1,6 @@
 {% if is_paginated %}
  <div style="display: flex; justify-content: center;">
-  <ul class="pagination">
+  <ul class="pagination mb-lg-5">
     {% if page_obj.has_previous %}
       <li class="btn btn-primary btn-sm">
         <a href="?page= {{ page_obj.previous_page_number }}">prev</a>
