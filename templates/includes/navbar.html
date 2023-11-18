@@ -2,7 +2,9 @@
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Navigation bar">
 
   <div class="container">
-    <a class="navbar-brand" href="{% url 'home:main' %}">Teploceramic<span>.</span></a>
+    <a class="navbar-brand" href="{% url 'home:main' %}">Teploceramic
+      <img style="width: 45px;" src="{% static 'images/logo.png' %}" alt="Teploceramic">
+    </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,7 +12,7 @@
 
     <div class="collapse navbar-collapse" id="navbarsFurni">
       <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'home:main' %}">Home</a>
         </li>
         <li><a class="nav-link" href="{% url 'products:product-list' %}">Products</a></li>
