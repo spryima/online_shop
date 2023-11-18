@@ -708,3 +708,38 @@ textarea {
   padding-right: 20px;
 }
 
+/* Custom CSS for smaller screens */
+@media (max-width: 767px) {
+  .product-item {
+    /* Adjustments for smaller screens */
+    font-size: 90%;
+    padding: 10px;
+  }
+  .product-thumbnail {
+    /* Adjust image sizes */
+    width: 75%;
+    height: auto;
+  }
+  /* Add any other necessary styling adjustments */
+}
+
+/* Custom CSS for product items */
+.product-item-container {
+  flex: 1; /* Each item takes equal space */
+  min-width: 150px; /* Minimum width for each item */
+  max-width: calc(100% / 3); /* Maximum width for each item */
+  padding: 10px; /* Padding around items */
+}
+
+/* Adjust the size of elements inside each product item */
+.product-item-container .product-item {
+  font-size: 0.8em; /* Smaller text */
+  /* Adjust other properties as needed */
+}
+
+/* Ensure images scale down */
+.product-item-container .product-item .product-thumbnail {
+  max-width: 100%;
+  height: auto;
+}
+
