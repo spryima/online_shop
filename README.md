@@ -7,6 +7,9 @@ This is an online store project which offers the functionality of adding product
 ## Links
 Project deployed to Render: https://online-shop-i9wi.onrender.com
 
+## DB Structure
+
+<img width="1162" alt="db__structure" src="https://github.com/spryima/online_shop/assets/142234584/a8af0356-1d7b-44d5-becb-12366cd2db3e">
 
 
 
