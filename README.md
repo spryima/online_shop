@@ -11,7 +11,7 @@ The Online Shop Platform is an integrated e-commerce system designed to deliver 
 - **Payment Integration**: Secure payment processing for customer convenience.
 
 ### Technology Stack
-- Front-End: HTML, CSS, JavaScript (Untree.co template)
+- Front-End: HTML, CSS, JavaScript, SCSS (Untree.co template)
 - Back-End: Python, Django
 - Database: SQLite3
 
